@@ -2,7 +2,7 @@
   <div class="container">
     <h1>zxcv <small>renderer</small></h1>
     <p>
-      A test renderer.
+      A test renderer using Javascript web workers.
     </p>
     <hr />
     <renderer></renderer>

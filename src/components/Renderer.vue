@@ -13,9 +13,12 @@
         const canvas = this.$els.canvas;
         const context = canvas.getContext('2d');
 
-        const renderer = new Renderer(300, 200);
-        renderer.render();
-        context.putImageData(new ImageData(renderer.pixels, renderer.width, renderer.height), 0, 0);
+        const renderer = new Renderer(canvas.width, canvas.height);
+        renderer.render((pixels) => {
+          const image = new ImageData(pixels, renderer.width, renderer.height);
+          Promise.resolve(createImageBitmap(image))
+                 .then(bitmap => context.drawImage(bitmap, 0, 0, canvas.width, canvas.height));
+        });
       },
     },
   };
