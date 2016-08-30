@@ -10,4 +10,5 @@ deployment:
   pages:
     branch: master
     commands:
+      - npm run build
       - ./ci/github-page.sh
